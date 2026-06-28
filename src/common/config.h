@@ -29,4 +29,15 @@
 #define TASK_UART_NAME            "task_uart"
 #define TASK_UART_PERIOD_MS       10
 
+/* ===== WS2812 LED 配置 ===== */
+#define WS2812_PIN                10
+#define WS2812_NUM_LEDS           1
+#define WS2812_BRIGHTNESS         100
+
+/* ===== LED 任务配置 ===== */
+#define TASK_LED_STACK_SIZE       (configMINIMAL_STACK_SIZE * 3)
+#define TASK_LED_PRIORITY         1
+#define TASK_LED_NAME             "task_led"
+#define TASK_LED_PERIOD_MS        20
+
 #endif
