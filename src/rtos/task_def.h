@@ -17,6 +17,7 @@ extern "C" {
 
 app_err_t task_uart_create(void);
 app_err_t task_led_create(void);
+app_err_t task_wifi_create(void);
 
 #ifdef __cplusplus
 }

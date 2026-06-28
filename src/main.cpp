@@ -21,6 +21,7 @@ void setup()
     LOG_I("system init start");
 
     task_led_create();
+    task_wifi_create();
     task_uart_create();
 
     LOG_I("system init done");

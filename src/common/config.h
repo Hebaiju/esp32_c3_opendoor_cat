@@ -40,4 +40,17 @@
 #define TASK_LED_NAME             "task_led"
 #define TASK_LED_PERIOD_MS        20
 
+/* ===== WiFi 配置 ===== */
+#define WIFI_SSID                 "xxxx"
+#define WIFI_PASSWORD             "31415926"
+#define WIFI_CONNECT_TIMEOUT_MS   15000
+#define WIFI_RETRY_BASE_DELAY_MS  2000
+#define WIFI_RETRY_MAX_DELAY_MS   30000
+
+/* ===== WiFi 任务配置 ===== */
+#define TASK_WIFI_STACK_SIZE      (configMINIMAL_STACK_SIZE * 5)
+#define TASK_WIFI_PRIORITY        2
+#define TASK_WIFI_NAME            "task_wifi"
+#define TASK_WIFI_PERIOD_MS       100
+
 #endif
