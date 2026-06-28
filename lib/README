@@ -1,34 +1,32 @@
+此目录用于存放项目专用（私有）库。
+PlatformIO会将它们编译成静态库，并链接到可执行文件中。
 
-This directory is intended for project specific (private) libraries.
-PlatformIO will compile them to static libraries and link into the executable file.
+每个库的源代码都应当存放在独立目录下，路径格式为：`lib/你的库名称/[代码]`。
 
-The source code of each library should be placed in a separate directory
-("lib/your_library_name/[Code]").
-
-For example, see the structure of the following example libraries `Foo` and `Bar`:
-
-|--lib
-|  |
-|  |--Bar
-|  |  |--docs
-|  |  |--examples
-|  |  |--src
-|  |     |- Bar.c
-|  |     |- Bar.h
-|  |  |- library.json (optional. for custom build options, etc) https://docs.platformio.org/page/librarymanager/config.html
-|  |
-|  |--Foo
-|  |  |- Foo.c
-|  |  |- Foo.h
-|  |
-|  |- README --> THIS FILE
-|
-|- platformio.ini
-|--src
-   |- main.c
-
-Example contents of `src/main.c` using Foo and Bar:
+下面以示例库Foo和Bar为例展示目录结构：
 ```
+├── lib
+│   ├── Bar
+│   │   ├── docs
+│   │   ├── examples
+│   │   ├── src
+│   │   │   ├── Bar.c
+│   │   │   └── Bar.h
+│   │   └── library.json（可选，用于自定义编译配置等，相关文档：https://docs.platformio.org/page/librarymanager/config.html）
+│   │
+│   ├── Foo
+│   │   ├── Foo.c
+│   │   └── Foo.h
+│   │
+│   └── README （即本文档）
+│
+├── platformio.ini
+└── src
+    └── main.c
+```
+
+在`src/main.c`中调用Foo与Bar库的示例代码：
+```c
 #include <Foo.h>
 #include <Bar.h>
 
@@ -36,11 +34,9 @@ int main (void)
 {
   ...
 }
-
 ```
 
-The PlatformIO Library Dependency Finder will find automatically dependent
-libraries by scanning project source files.
+PlatformIO库依赖查找工具会扫描项目源代码，自动识别所需依赖库。
 
-More information about PlatformIO Library Dependency Finder
+关于PlatformIO库依赖查找工具的更多信息：
 - https://docs.platformio.org/page/librarymanager/ldf.html
