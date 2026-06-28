@@ -166,7 +166,7 @@ void menu_show(void)
         _p("  %u. %s%s\r\n", i + 1, s_current->items[i].label, suf);
     }
     _p("  ----------------------------------------\r\n");
-    _p("  0. %s\r\n", s_depth > 0 ? "返回上级" : "退出菜单");
+    _p("  0. %s\r\n", s_depth > 0 ? "返回上级" : "刷新菜单");
     _p("\r\n请输入序号: ");
 }
 
@@ -265,7 +265,7 @@ void menu_input(const char* line)
         }
 
         if (s_active && s_input_mode == INPUT_NONE)
-            _p("\r\n按回车继续...");
+            _p("\r\n按回车刷新菜单，按0返回...");
         return;
     }
 
@@ -274,14 +274,17 @@ void menu_input(const char* line)
 
     char c = line[0];
 
-    /* 0 = 返回/退出 */
+    /* 0 = 返回上级 / 刷新菜单（根菜单不退出） */
     if (c == '0') {
         if (s_depth > 0) {
             s_depth--;
             s_current = s_stack[s_depth];
             _p("\r\n返回上级\r\n");
             menu_show();
-        } else menu_stop();
+        } else {
+            _p("\r\n已在主菜单\r\n");
+            menu_show();
+        }
         return;
     }
 
@@ -311,6 +314,6 @@ void menu_input(const char* line)
     else if (it->type == ITEM_ACTION) {
         if (it->data.action) it->data.action();
         if (s_input_mode == INPUT_NONE)
-            _p("\r\n按回车继续...");
+            _p("\r\n按回车刷新菜单，按0返回...");
     }
 }
