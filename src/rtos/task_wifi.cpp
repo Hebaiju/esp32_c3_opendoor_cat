@@ -12,6 +12,7 @@
 #include "common/config.h"
 #include "common/log.h"
 #include "service/srv_wifi.h"
+#include "service/srv_webconfig.h"
 
 static void task_wifi_entry(void *pvParameters)
 {
@@ -21,6 +22,7 @@ static void task_wifi_entry(void *pvParameters)
 
     for (;;) {
         srv_wifi_task_process();
+        srv_webconfig_task_process();
         vTaskDelay(pdMS_TO_TICKS(TASK_WIFI_PERIOD_MS));
     }
 }

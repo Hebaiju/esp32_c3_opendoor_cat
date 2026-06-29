@@ -41,16 +41,30 @@
 #define TASK_LED_PERIOD_MS        20
 
 /* ===== WiFi 配置 ===== */
-#define WIFI_SSID                 "xxxx"
-#define WIFI_PASSWORD             "31415926"
 #define WIFI_CONNECT_TIMEOUT_MS   15000
 #define WIFI_RETRY_BASE_DELAY_MS  2000
 #define WIFI_RETRY_MAX_DELAY_MS   30000
+#define WIFI_MAX_SAVED_NETS       3
+
+/* ===== WiFi AP 配置 ===== */
+#define WIFI_AP_SSID_PREFIX       "OPNC-"
+#define WIFI_AP_CHANNEL           6
+#define WIFI_AP_MAX_CONN          4
+
+/* ===== WiFi NVS 配置 ===== */
+#define WIFI_NVS_NAMESPACE        "wifi"
+#define WIFI_NVS_COUNT_KEY        "count"
+#define WIFI_NVS_SSID_KEY(i)      ("s" #i)
+#define WIFI_NVS_PASS_KEY(i)      ("p" #i)
+
+/* ===== Web 配置页配置 ===== */
+#define WEBCONFIG_PORT            80
+#define WEBCONFIG_DNS_PORT        53
 
 /* ===== WiFi 任务配置 ===== */
 #define TASK_WIFI_STACK_SIZE      (configMINIMAL_STACK_SIZE * 5)
 #define TASK_WIFI_PRIORITY        2
 #define TASK_WIFI_NAME            "task_wifi"
-#define TASK_WIFI_PERIOD_MS       100
+#define TASK_WIFI_PERIOD_MS       20
 
 #endif
